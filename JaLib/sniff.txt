@@ -1,0 +1,173 @@
+﻿RS232:
+9600/ 8bit / 1 stop bit / parity NONE
+
+
+Klid:
+ED 40 00 00 01 00 00 00 16 FF                     í@.......ÿ
+
+Akt. detektor:
+ED 40 10 00 01 00 00 00 24 FF                      í@......$ÿ
+
+Command - otaznik:
+8E FF
+A0 FF
+
+AKt. detektor, device
+ED 40 10 01 01 00 00 00 2A FF                      í@......*ÿ
+
+Command - "A"
+8F FF
+A0 FF
+82 FF
+A1 FF
+
+ustredna:
+E3 16 08 11 16 0D 3F 1E FF                         ã.....?.ÿ
+
+Odchod A
+ED 51 0C 00 09 00 00 00 05 FF                      íQ.......ÿ
+ED 51 0C 00 09 04 00 00 73 FF                      íQ......sÿ
+
+Odemknuti RFID:
+8C FF
+A0 FF
+8B FF
+A0 FF
+81 FF
+A0 FF
+86 FF
+A2 FF
+
+.. CB16
+
+Odemknuti klavesnice (pin 1234):
+81 FF
+A0 FF
+82 FF
+A0 FF
+83 FF
+A0 FF
+84 FF
+A2 FF
+
+
+Ustredna:
+E3 16 08 11 16 09 41 62 FF                         ã.....Abÿ
+
+Klavesnice hlasi:
+ED 40 00 00 01 04 00 00 60 FF                      í@......`ÿ
+ED 40 00 00 01 00 00 00 16 FF                      í@.......ÿ
+
+
+Command "B"
+8F FF
+A0 FF
+83 FF
+A1 FF
+
+Ustredna:
+E3 16 08 11 16 21 3F 5B FF                         ã....!?[ÿ
+
+Odchod B
+ED 52 0C 00 0D 00 00 00 15 FF                      íR.......ÿ
+ED 52 0C 00 0D 04 00 00 63 FF                      íR......cÿ
+
+Odemknuti:
+..
+
+Ustredna:
+E3 16 08 11 16 09 41 62 FF                         ã.....Abÿ
+
+Klavesnice:
+ED 40 00 00 01 00 00 00 16 FF                      í@.......ÿ
+
+Command "ABC"
+8F FF
+A0 FF
+81 FF
+A1 FF
+
+Ustredna
+E3 16 08 11 16 0C 3F 34 FF                         ã.....?4ÿ
+
+Odchod ABC
+ED 53 0C 00 0F 00 00 00 68 FF                      íS......hÿ
+ED 53 0C 00 0F 04 00 00 1E FF                      íS.......ÿ
+ED 53 0C 00 0F 05 00 00 52 FF                      íS......Rÿ
+
+Odemknuti:
+...
+
+Ustredna:
+E3 16 08 11 16 09 41 62 FF                         ã.....Abÿ
+
+
+Klavesnice:
+ED 40 00 00 01 04 00 00 60 FF                      í@......`ÿ
+ED 40 00 00 01 00 00 00 16 FF                      í@.......ÿ
+
+----------------------------------------------
+Alarm seq
+
+Command - "A"
+8F FF
+A0 FF
+82 FF
+A1 FF
+
+Odchod A
+ED 51 0C 00 09 00 00 00 05 FF                      íQ.......ÿ
+ED 51 0C 00 09 04 00 00 73 FF                      íQ......sÿ
+
+Zajisteno A
+ED 41 0C 00 09 04 00 00 1E FF                      íA.......ÿ
+ED 41 10 00 09 04 00 00 68 FF                      íA......hÿ
+ED 41 00 00 09 04 00 00 5A FF                      íA......Zÿ
+
+Alarm
+ED 45 00 00 09 34 00 00 7F FF                      íE...4..ÿ
+ED 45 06 02 19 34 00 00 04 FF                      íE...4...ÿ
+ED 45 06 02 19 34 00 00 04 FF                      íE...4...ÿ
+ED 45 06 02 19 3C 00 00 4B FF                      íE...<..Kÿ
+
+odjisteno
+...
+ED 40 06 02 11 00 00 00 6D FF                      í@......mÿ
+ED 40 00 00 01 00 00 00 16 FF                      í@.......ÿ
+
+
+Alarm armed:
+ED 43 00 00 0F 04 00 00 37 FF                      íC......7ÿ
+
+alarm wait period:
+ED 4B 0D 00 0F 06 00 00 41 FF                      íK......Aÿ
+
+2nd byte (status):
+bit 0: A armed
+bit 1: B  armed
+bit 2: ALARM
+bit 3: Incomming Wait period raised
+bit 4: Otcomming wait period
+bit 5:
+bit 6:
+bit 7:
+
+3rd byte - main message
+0x00 - Idle
+0x06 - Alarm
+0x0C - Outcomming timeout
+0x0D - Incomming timeout
+0x10 - Active detector
+
+4th byte - device ID (secondary message)
+
+5th byte - indicators
+bit 0: backlight?
+bit 1: C
+bit 2: B
+bit 3: A
+bit 4: warning
+bit 5:
+bit 6:
+bit 7:
+
