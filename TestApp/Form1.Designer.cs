@@ -203,7 +203,7 @@
             this.txtPIN.Name = "txtPIN";
             this.txtPIN.Size = new System.Drawing.Size(100, 20);
             this.txtPIN.TabIndex = 16;
-            this.txtPIN.Text = "CB16";
+            this.txtPIN.Text = "1234";
             // 
             // Form1
             // 
